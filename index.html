@@ -356,6 +356,43 @@
                 font-size: 1.2rem;
             }
         }
+        /* Styles the "LIVE" text and dot container */
+.live-indicator {
+    color: black; /* As requested */
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-right: 8px;
+    
+    /* Aligns the dot and text vertically */
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Styles the red dot */
+.live-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: red; /* As requested */
+    border-radius: 50%; /* Makes it a circle */
+    margin-right: 5px;
+    
+    /* Applies the blinking animation */
+    animation: blink 1s infinite;
+}
+
+/* Defines the blinking animation */
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
         .epoch-title {
             text-align: center;
@@ -401,6 +438,21 @@
         <p><strong>Prize Pool:</strong> ₹10,500</p>
         <p><strong>Team Size:</strong> 3-4 Members</p>
         <p><strong>Organized by:</strong> EPOCH SOCIETY</p>
+        
+       <div class="links">
+    <div class="link-item">
+        <h3>
+            <span class="live-indicator">
+                <span class="live-dot"></span>
+                LIVE
+            </span>
+            🎥 Join Bootcamp Sessions
+        </h3>
+        <a href="https://live.zoho.in/vmar-tld-qso" target="_blank">
+            https://live.zoho.in/vmar-tld-qso
+        </a>
+    </div>
+</div>
 
         <h2>⚠ Important Note</h2>
         <p><strong>Participation in the Bootcamp is mandatory to join the Hackathon</strong>, as problem statements will be derived from the concepts and tools covered during the sessions led by SmartBridge mentors.</p>
