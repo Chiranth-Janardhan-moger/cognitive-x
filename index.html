@@ -12,17 +12,148 @@
         }
 
         body {
-            font-family: 'Courier New', monospace;
+            font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: #e8e8e8;
             padding: 40px 20px;
-            color: #000;
+            color: white;
             overflow-x: hidden;
+        }
+
+        /* Floating Dots Background */
+        .floating-dots {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .float-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #ff0000;
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.4;
+            }
+            25% {
+                transform: translateY(-100px) translateX(50px) scale(1.2);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-200px) translateX(-50px) scale(0.8);
+                opacity: 0.3;
+            }
+            75% {
+                transform: translateY(-150px) translateX(100px) scale(1.1);
+                opacity: 0.5;
+            }
+        }
+
+        .float-dot:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; animation-duration: 12s; }
+        .float-dot:nth-child(2) { left: 25%; top: 60%; animation-delay: 2s; animation-duration: 15s; }
+        .float-dot:nth-child(3) { left: 50%; top: 30%; animation-delay: 4s; animation-duration: 18s; }
+        .float-dot:nth-child(4) { left: 70%; top: 70%; animation-delay: 1s; animation-duration: 14s; }
+        .float-dot:nth-child(5) { left: 85%; top: 40%; animation-delay: 3s; animation-duration: 16s; }
+        .float-dot:nth-child(6) { left: 15%; top: 80%; animation-delay: 5s; animation-duration: 13s; }
+        .float-dot:nth-child(7) { left: 40%; top: 10%; animation-delay: 2.5s; animation-duration: 17s; }
+        .float-dot:nth-child(8) { left: 60%; top: 50%; animation-delay: 4.5s; animation-duration: 11s; }
+
+        /* Marquee Styles */
+        .marquee-container {
+            background: #000;
+            padding: 15px 0;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .marquee-container::before,
+        .marquee-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .marquee-container::before {
+            left: 0;
+            background: linear-gradient(to right, #000, transparent);
+        }
+
+        .marquee-container::after {
+            right: 0;
+            background: linear-gradient(to left, #000, transparent);
+        }
+
+        .marquee {
+            display: flex;
+            animation: scroll 25s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee-content {
+            display: flex;
+            align-items: center;
+            padding: 0 50px;
+        }
+
+        .marquee-text {
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            display: inline-flex;
+            align-items: center;
+            margin: 0 30px;
+        }
+
+        .red-dot {
+            width: 8px;
+            height: 8px;
+            background: #ff0000;
+            border-radius: 50%;
+            margin: 0 15px;
+            animation: pulse-dot 1.5s ease-in-out infinite;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.6;
+            }
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
-            margin-top: 5px;
             animation: fadeInUp 0.8s ease-out;
         }
 
@@ -37,10 +168,76 @@
             }
         }
 
+        .epoch-title {
+            text-align: center;
+            animation: slideDown 0.8s ease-out;
+            font-size:20 ;
+            margin-bottom: 20px;
+        }
+
+        .epoch-title:hover {
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* Enhanced Glitch Effect */
+        .glitch {
+            position: relative;
+            animation: glitch-main 3s infinite;
+        }
+
+        @keyframes glitch-main {
+            0%, 90%, 100% {
+                transform: translate(0);
+            }
+            92% {
+                transform: translate(-2px, 2px);
+            }
+            94% {
+                transform: translate(2px, -2px);
+            }
+            96% {
+                transform: translate(-2px, -2px);
+            }
+            98% {
+                transform: translate(2px, 2px);
+            }
+        }
+
         .logo {
             text-align: center;
             margin-bottom: 60px;
             animation: slideDown 1s ease-out;
+            position: relative;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
+            animation: pulse-bg 3s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse-bg {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0.6;
+            }
         }
 
         @keyframes slideDown {
@@ -118,6 +315,7 @@
             font-size: 1.2rem;
             line-height: 1.8;
             margin-bottom: 15px;
+            margin-top:18px;
             color: #000;
             animation: fadeIn 1s ease-out;
         }
@@ -142,6 +340,28 @@
             letter-spacing: 1px;
             position: relative;
             animation: borderPulse 2s ease-in-out infinite;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 0, 0, 0.05) 50%, transparent 100%);
+            overflow: hidden;
+        }
+
+        .important::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes borderPulse {
@@ -161,16 +381,34 @@
 
         .link-item {
             margin: 30px 0;
-            padding: 25px 0;
-            border-top: 2px solid #000;
-            border-bottom: 2px solid #000;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 25px;
+            border: 2px solid #000;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
+            background: rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .link-item:hover::before {
+            left: 100%;
         }
 
         .link-item:hover {
-            transform: translateX(10px);
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border-color: #ff0000;
         }
 
         .link-item h3 {
@@ -181,7 +419,7 @@
         }
 
         .link-item:hover h3 {
-            color: #666;
+            color: #ff0000;
         }
 
         .link-item a {
@@ -194,7 +432,7 @@
         }
 
         .link-item a:hover {
-            color: #666;
+            color: #ff0000;
             transform: scale(1.02);
         }
 
@@ -282,7 +520,7 @@
 
         .faq-question {
             padding: 20px 25px;
-            background: #e8e8e8;
+            background: white;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -316,6 +554,7 @@
 
         .faq-answer {
             max-height: 0;
+            font-size:1rem;
             overflow: hidden;
             transition: max-height 0.4s ease, padding 0.4s ease;
             background: rgba(255, 255, 255, 0.5);
@@ -330,6 +569,20 @@
             font-size: 1.15rem;
             line-height: 1.7;
             color: #000;
+        }
+
+        .footer-quote {
+            text-align: center;
+            margin-top: 60px;
+            font-style: italic;
+            color: #666;
+            animation: fadeIn 2s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        .footer-quote:hover {
+            color: #000;
+            transform: scale(1.05);
         }
 
         @media (max-width: 600px) {
@@ -356,93 +609,147 @@
             .faq-icon {
                 font-size: 1.2rem;
             }
+
+            .marquee-text {
+                font-size: 1rem;
+            }
         }
-        /* Styles the "LIVE" text and dot container */
-.live-indicator {
-    color: black; /* As requested */
-    font-weight: bold;
-    font-size: 0.9em;
-    margin-right: 8px;
-    
-    /* Aligns the dot and text vertically */
-    display: inline-flex;
-    align-items: center;
-}
-
-/* Styles the red dot */
-.live-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background-color: red; /* As requested */
-    border-radius: 50%; /* Makes it a circle */
-    margin-right: 5px;
-    
-    /* Applies the blinking animation */
-    animation: blink 1s infinite;
-}
-
-/* Defines the blinking animation */
-@keyframes blink {
-    0% {
-        opacity: 1;
+        body {
+      background-color:WHITE;
+      color: BLACK;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
     }
-    50% {
-        opacity: 0;
+
+    h1 {
+      color: #ff1c1c;
+      font-size: 2em;
+      letter-spacing: 4px;
+      text-transform: uppercase;
     }
-    100% {
-        opacity: 1;
+
+    #countdown {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+      gap: 30px;
     }
-}
 
-        .epoch-title {
-            text-align: center;
-            animation: slideDown 0.8s ease-out;
-            margin-top: 30px; 
-        }
+    .time-section {
+      text-align: center;
+    }
 
-        .epoch-title:hover {
-            animation: shake 0.5s ease;
-        }
+    .number {
+      font-size: 5em;
+      font-weight: bold;
+      line-height: 1;
+    }
 
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-        }
+    .label {
+      font-size: 1.1em;
+      color: black;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 5px;
+      display: block;
+    }
 
-        .footer-quote {
-            text-align: center;
-            margin-top: 60px;
-            font-style: italic;
-            color: #666;
-            animation: fadeIn 2s ease-out;
-            transition: all 0.3s ease;
-        }
+    /* Red seconds */
+    #seconds {
+      color: #ff1c1c;
+    }
 
-        .footer-quote:hover {
-            color: #000;
-            transform: scale(1.05);
-        }
+    /* Responsive design for smaller screens */
+    @media (max-width: 600px) {
+      .number {
+        font-size: 3em;
+      }
+      h1 {
+        font-size: 1em;
+        letter-spacing: 2px;
+      }
+    }
+
     </style>
 </head>
 <body>
-    <img src="newsociety.png" alt="Photo" style="display:block; margin: 0 auto; max-width: 15%;">
-    <h1 class="epoch-title">EPOCH SOCIETY PRESENTS</h1>
+    <!-- Floating Dots Background -->
+    <div class="floating-dots">
+        <div class="float-dot"></div>
+        <div class="float-dot"></div>
+        <div class="float-dot"></div>
+        <div class="float-dot"></div>
+        <div class="float-dot"></div>
+        <div class="float-dot"></div>
+        <div class="float-dot"></div>
+        <div class="float-dot"></div>
+    </div>
+    
+    
+    <!-- Marquee Section -->
+
+     <img src="newsociety.png" class=" epoch-title glitch" alt="Photo" style="display:block; margin: 0 auto; max-width: 15%;">
+    <h1 class="epoch-title glitch">EPOCH SOCIETY PRESENTS</h1>
+    
     <div class="container">
         <div class="logo">
             <img src="cognitivex.png" alt="CognitiveX">
         </div>
-        
+        <h3 style="text-align: center;"> Collaborated with</h3>
+        <br>
+            <div class="marquee-container">
+        <div class="marquee">
+            <div class="marquee-content">
+                <span class="marquee-text">IBM SKILLBRIDGE</span>
+                <span class="red-dot"></span>
+                <span class="marquee-text">SMARTBRIDGE</span>
+                <span class="red-dot"></span>
+                <span class="marquee-text">CODING CLUB</span>
+                <span class="red-dot"></span>
+                <span class="marquee-text">IEEE IT SOCIETY</span>
+                <span class="red-dot"></span>
+            </div>
+            <div class="marquee-content">
+                <span class="marquee-text">IBM SKILLBRIDGE</span>
+                <span class="red-dot"></span>
+                <span class="marquee-text">SMARTBRIDGE</span>
+                <span class="red-dot"></span>
+                <span class="marquee-text">CODING CLUB</span>
+                <span class="red-dot"></span>
+                <span class="marquee-text">IEEE IT SOCIETY</span>
+                <span class="red-dot"></span>
+            </div>
+        </div>
+    </div>
         <h2>16 HOURS HACKATHON</h2>
-         <p style="font-family: 'Orbitron', sans-serif; font-size: 20px; color:rgb(0, 0, 0); text-shadow: 0 0 10px rgba(136, 124, 124, 0.572);">
-                    <strong>IN COLLABORATION WITH IBM SkillsBuild x SmartBridge</strong> 
-                </p>
+        <!-- timer section -->
+     <h1>GenAI HACKATHON BEGINS IN</h1>
+
+  <div id="countdown">
+    <div class="time-section">
+      <span class="number" id="days">00</span>
+      <span class="label">Days</span>
+    </div>
+    <div class="time-section">
+      <span class="number" id="hours">00</span>
+      <span class="label">Hours</span>
+    </div>
+    <div class="time-section">
+      <span class="number" id="minutes">00</span>
+      <span class="label">Mins</span>
+    </div>
+    <div class="time-section">
+      <span class="number" id="seconds">00</span>
+      <span class="label">Secs</span>
+    </div>
+  </div>
+
         
-        <p><strong>Bootcamp:</strong> November 1-3 (7:00-9:00 PM Online)</p>
         <p><strong>Event Date:</strong> November 5th & 6th</p>
         <p><strong>Prize Pool:</strong> ₹10,500</p>
-        <p><strong>Team Size:</strong> 3 Members</p>
         <p><strong>Organized by:</strong> EPOCH SOCIETY</p>
         
         <div class="important">
@@ -472,13 +779,103 @@
             <li>Earn certificates & win exciting prizes</li>
             <li>Network with innovators, developers & tech leaders</li>
         </ul>
-        <h2>PROBLEM STATEMENTS</h2>
+           <h2>PROBLEM STATEMENTS</h2>
         <ul>
-            <li>AI Medical Prescription Verification Leveraging IBM Watson and Hugging Face Models</li>
-            <li>ClauseWise: Legal Document Analyzer Using IBM Watson & Granite</li>
-            <li>Personal Finance Chatbot: Intelligent Guidance for Savings, Taxes, and Investments</li>
-            <li>StudyMate: An AI-Powered PDF-Based Q&A System for Students</li>
-            <li>EchoVerse – An AI-Powered Audiobook Creation Tool</li>
+          <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="faq-question-text">AI Medical Prescription Verification Leveraging IBM Watson and Hugging Face Models</span>
+                    <span class="faq-icon">↴</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                    <strong>PROJECT OVERVIEW</strong><br>
+                        The <strong>Medical Prescription Verification System </strong>is an AI-driven healthcare project designed to ensure safe and accurate prescriptions using
+                        <strong>IBM Watson</strong> and <strong>Hugging Face NLP models</strong>. It automatically detects <strong>drug interactions</strong>, verifies <strong>dosages</strong>, and
+                        recommends <strong>safer alternatives</strong> based on patient details. The system is built using <strong> Python</strong> with <strong>FastAPI</strong> for the backend 
+                        and <strong>Streamlit</strong> for a real-time, interactive frontend. To build it, you’ll use <strong>IBM Watson API</strong> for medical language understanding,
+                        <strong> Hugging Face Transformers</strong> for NLP-based text extraction, <strong>Pandas</strong> and <strong>NumPy</strong> for data processing,<strong> SQLite or MongoDB</strong>
+                        for storing patient and drug data, and <strong>REST APIs</strong> for integration between modules. Additionally, <strong>matplotlib or Plotly</strong> can be used for visual analytics,
+                        and <strong>scikit-learn</strong> or <strong>TensorFlow</strong> may be included for dosage prediction or recommendation models. This complete setup ensures an intelligent, accurate,
+                        and user-friendly prescription verification system.
+
+                    </div>
+                </div>
+            </div>
+               <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="faq-question-text">ClauseWise: Legal Document Analyzer Using IBM Watson & Granite</span>
+                    <span class="faq-icon">↴</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        The <strong>ClauseWise: Legal Document Analyzer</strong> is an <strong>AI-powered tool</strong> that simplifies, decodes, and classifies complex legal texts to make them easily understandable 
+                        for <strong>lawyers, businesses, and general users</strong>. It leverages <strong>IBM Watson</strong>, <strong>Granite</strong>, and <strong>Hugging Face</strong> models to automate the interpretation 
+                        of legal clauses, obligations, and document types, reducing the manual effort involved in legal review. The system performs <strong>clause simplification</strong> by rewriting complex legal language into clear,
+                        plain text and uses <strong>Named Entity Recognition (NER)</strong> to extract important details such as parties, dates, amounts, and obligations. It also enables <strong>clause extraction and breakdown</strong>
+                        from lengthy documents for deeper analysis and provides <strong>document type classification</strong> to categorize files like NDAs, leases, employment contracts, and service agreements. Supporting multiple file formats including
+                        <strong>PDF, DOCX, and TXT</strong>, it ensures flexible document uploads. Developed using <strong>Python</strong>, the tool features an intuitive and interactive interface built with <strong>Streamlit</strong> and <strong>Gradio</strong>, 
+                        making legal document analysis faster, smarter, and more accessible with the help of <strong>advanced AI technologies</strong>.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="faq-question-text">Personal Finance Chatbot: Intelligent Guidance for Savings, Taxes, and Investments</span>
+                    <span class="faq-icon">↴</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                   The <strong>Personal Finance Chatbot: Intelligent Guidance for Savings, Taxes, and Investments</strong> is an <strong>AI-powered chatbot</strong> that provides <strong>personalized financial advice</strong> using <strong>IBM Watson</strong>
+                        and <strong>Generative AI models</strong>. It offers insights on <strong>savings, taxes, investments,</strong> and <strong>spending habits</strong>, adapting its tone and complexity based on the user type, whether <strong>students</strong> or
+                        <strong>professionals</strong>. The chatbot helps users make informed financial decisions while improving their overall <strong>financial literacy</strong>. Key features include <strong>personalized financial guidance</strong> for savings and investments,
+                        <strong>AI-generated budget summaries</strong> that present spending data in an easy-to-understand format, and <strong>spending insights</strong> that suggest better expense management strategies. It also uses <strong>demographic-aware communication</strong>
+                        to tailor its responses and a <strong>conversational NLP experience</strong> for natural, context-aware financial Q&A powered by IBM’s NLP tools. Developed using <strong>Python</strong>, <strong>Streamlit</strong>, <strong>IBM Watson</strong>,
+                        <strong>Hugging Face</strong>,
+                        and <strong>Granite</strong>, this intelligent chatbot combines technology and finance to deliver accessible, real-time financial guidance for users of all backgrounds.
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="faq-question-text">StudyMate: An AI-Powered PDF-Based Q&A System for Students</span>
+                    <span class="faq-icon">↴</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                      The <strong>StudyMate: An AI-Powered PDF-Based Q&A System for Students</strong> is an <strong>AI academic assistant</strong> 
+                        designed to help students interactively learn from their study materials. It enables users to <strong>upload PDFs</strong>
+                        such as notes, textbooks, or research papers and <strong>ask questions directly</strong>, receiving precise, contextual answers
+                        extracted from the uploaded content. Using advanced <strong>NLP</strong> and <strong>embedding-based search</strong>,
+                        the system eliminates the need to manually search or read through lengthy documents. Key features include <strong>conversational Q&A</strong>
+                        for natural-language queries, <strong>text extraction and preprocessing</strong> powered by <strong>PyMuPDF</strong>, and <strong>semantic search</strong>
+                        capabilities implemented with <strong>FAISS</strong> and embeddings. It generates accurate, grounded answers through <strong>LLM-based processing</strong> 
+                        using <strong>IBM Watson’s Mistral model</strong>. Built with <strong>Python</strong> and a <strong>Streamlit-based user interface</strong>, 
+                        StudyMate ensures a seamless experience for document uploads, question handling, and intelligent response generation. The system integrates technologies like
+                        <strong>Hugging Face</strong>, <strong>PyMuPDF</strong>, <strong>Mistral</strong>, and <strong>FAISS</strong> to create an efficient, interactive,
+                        and student-friendly learning companion.
+
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="faq-question-text">EchoVerse – An AI-Powered Audiobook Creation Tool</span>
+                    <span class="faq-icon">↴</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                      The <strong>EchoVerse – An AI-Powered Audiobook Creation Tool</strong> is a <strong>generative AI-based system</strong> that transforms written text into <strong>expressive, natural-sounding audio</strong>.
+                        Designed to enhance <strong>accessibility</strong> and <strong>content reusability</strong>, it benefits students, content creators, and visually impaired users by providing an easy way to listen to written material.
+                        The tool allows <strong>customization of tone</strong> — such as Neutral, Suspenseful, or Inspiring — and supports different voice styles for personalized narration. Key features include
+                        <strong>tone-adaptive text rewriting</strong> powered by <strong>IBM Watson Granite</strong>, <strong>high-quality voice narration</strong> using advanced <strong>Text-to-Speech (TTS)</strong> technology, and 
+                        <strong>downloadable audio output</strong> in <strong>.mp3 format</strong> for offline access. It also offers a <strong>side-by-side comparison</strong> of original and rewritten text to enhance user control and editing precision.
+                        Built with <strong>Python</strong> and featuring a <strong>Streamlit-based interface</strong>, EchoVerse provides a seamless, interactive, and user-friendly experience for transforming any text into dynamic audio content.
+
+                    </div>
+                </div>
+            </div>
         </ul>
 
         <div class="faq-section">
@@ -601,10 +998,41 @@
                 faqItem.classList.add('active');
             }
         }
+         // 🕐 Set your Hackathon start date & time here
+    const hackathonDate = new Date("november 5, 2025 10:00:00").getTime();
+
+    const timer = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = hackathonDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = days.toString().padStart(2, '0');
+      document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+
+      // When countdown ends
+      if (distance < 0) {
+        clearInterval(timer);
+        document.body.innerHTML = `
+          <h1 style="color:#ff1c1c; font-size:2em; margin-top:200px;">
+            🎉 Hackathon Begins! 🎉
+          </h1>
+        `;
+      }
+    }, 1000);
     </script>
 </body>
 
 </html>
+
+
+
+        
 
 
 
