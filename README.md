@@ -74,7 +74,7 @@ Experience the full project hosted on **Vercel**.
 
 <p align="center">
   <img src="assets/screenshot1.png" width="700" alt="CognitiveX Homepage" />
- href="https://cognitive-x.vercel.app/">
+ href=<"https://cognitive-x.vercel.app/">
   <br>
   <em>✨ The sleek and responsive homepage of CognitiveX ✨</em>
 </p>
