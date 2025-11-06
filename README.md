@@ -48,8 +48,57 @@ Experience the full project hosted on **Vercel**.
 
 ---
 
-## 🧩 Run Locally
+## 👨‍💻 Contributors
 
-1. **Clone this repository**
-   ```bash
-   git clone https://github.com/yourusername/cognitivex.git
+> Meet the amazing people behind **CognitiveX** 💡  
+
+<p align="center">
+  <a href="#">
+    <img src="assets/rehan.jpg" width="120px" style="border-radius:50%" alt="Mohammed Rehan"/><br>
+    <sub><b>MOHAMMED REHAN</b></sub><br>
+    <sub>Frontend Developer & UI Designer 🎨</sub>
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#">
+    <img src="assets/chiranth.jpg" width="120px" style="border-radius:50%" alt="Chiranth R"/><br>
+    <sub><b>CHIRANTH R</b></sub><br>
+    <sub>Developer & Content Manager 🧩</sub>
+  </a>
+</p>
+
+---
+
+## 🖼️ Screenshots
+
+> Add screenshots or demo GIFs of your homepage, timer section, and event info.
+
+<p align="center">
+  <img src="assets/screenshot1.png" width="700" alt="CognitiveX Homepage" />
+  <br>
+  <em>✨ The sleek and responsive homepage of CognitiveX ✨</em>
+</p>
+
+---
+
+## 🤝 Contributing
+
+We welcome community contributions and feedback!  
+To contribute:
+
+1. Fork the repository  
+2. Create a new branch (`feature/your-feature-name`)  
+3. Commit your changes  
+4. Push and open a Pull Request 🚀
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License** — feel free to use, modify, and share it with credit.
+
+---
+
+<p align="center">
+  Made with ❤️ by <b>Team CognitiveX</b><br>
+  for the <b>College Hackathon</b> 🚀
+</p>
