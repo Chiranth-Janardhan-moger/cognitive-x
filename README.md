@@ -72,8 +72,8 @@ Experience the full project hosted on **Vercel**.
 
 > Add screenshots or demo GIFs of your homepage, timer section, and event info.
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/Chiranth-janardhan-moger">
-    <img src="https://github.com/Chiranth-janardhan-moger.png" width="120px" style="border-radius:50%" alt="Chiranth R"/><br>
+  <a href="https://cognitive-x.vercel.app/">
+    <img src="https://cognitive-x.vercel.app/.png" width="120px" style="border-radius:50%" alt="Chiranth R"/><br>
   <em>✨ The sleek and responsive homepage of CognitiveX ✨</em>
 </p>
 
