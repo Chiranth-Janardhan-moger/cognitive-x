@@ -66,18 +66,7 @@ Experience the full project hosted on **Vercel**.
   </a>
 </p>
 
----
 
-## 🖼️ Screenshots
-
-> Add screenshots or demo GIFs of your homepage, timer section, and event info.
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://cognitive-x.vercel.app/">
-    <img src="https://cognitive-x.vercel.app/" width="120px" style="border-radius:50%" alt="COGNITIVEX"/><br>
-  <em>✨ The sleek and responsive homepage of CognitiveX ✨</em>
-</p>
-
----
 
 ## 🤝 Contributing
 
