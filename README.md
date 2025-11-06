@@ -53,14 +53,14 @@ Experience the full project hosted on **Vercel**.
 > Meet the amazing people behind **CognitiveX** 💡  
 
 <p align="center">
-  <a href="https://github.com/MohammedRehan03">
+  <a href="https://github.com/MohammedRehan143">
     <img src="https://github.com/MohammedRehan143.png" width="120px" style="border-radius:50%" alt="Mohammed Rehan"/><br>
     <sub><b>MOHAMMED REHAN</b></sub><br>
     <sub>Frontend Developer & UI Designer 🎨</sub>
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/Chiranth-janardhan-moger">
-    <img src="https://github.com/ChiranthR.png" width="120px" style="border-radius:50%" alt="Chiranth R"/><br>
+    <img src="https://github.com/Chiranth-janardhan-moger.png" width="120px" style="border-radius:50%" alt="Chiranth R"/><br>
     <sub><b>CHIRANTH R</b></sub><br>
     <sub>Developer & Content Manager 🧩</sub>
   </a>
